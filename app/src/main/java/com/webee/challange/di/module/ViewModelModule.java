@@ -3,6 +3,7 @@ package com.webee.challange.di.module;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import com.webee.challange.di.module.ViewModelKey;
+import com.webee.challange.viewmodel.DeviceDetailViewModel;
 import com.webee.challange.viewmodel.DeviceListViewModel;
 import com.webee.challange.viewmodel.ViewModelFactory;
 import dagger.Binds;
@@ -20,9 +21,9 @@ public abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(DeviceListViewModel.class)
+    @ViewModelKey(DeviceDetailViewModel.class)
     @SuppressWarnings("unused")
-    abstract ViewModel bindsDeviceDetailViewModel(DeviceListViewModel deviceDetailsViewModel);
+    abstract ViewModel bindsDeviceDetailViewModel(DeviceDetailViewModel deviceDetailViewModel);
 
 
     @Binds

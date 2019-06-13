@@ -2,7 +2,7 @@ package com.webee.challange.databinding;
 
 import android.support.v7.widget.RecyclerView;
 import android.databinding.BindingAdapter;
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.Resource;
 import com.webee.challange.view.base.BaseAdapter;
 
 import java.util.List;
@@ -15,7 +15,7 @@ final class ListBindingAdapter{
 
     @SuppressWarnings("unchecked")
     @BindingAdapter(value = "resource")
-    public static void setResource(RecyclerView recyclerView, List<DeviceEntity> resource){
+    public static void setResource(RecyclerView recyclerView, Resource resource){
         RecyclerView.Adapter adapter = recyclerView.getAdapter();
         if(adapter == null)
             return;
@@ -24,7 +24,7 @@ final class ListBindingAdapter{
             return;
 
         if(adapter instanceof BaseAdapter){
-            ((BaseAdapter)adapter).setData((List) resource);
+            ((BaseAdapter)adapter).setData((List) resource.data);
         }
     }
 

@@ -35,7 +35,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
 
     @Override
     public int getLayoutRes() {
-        return R.layout.fragment_device_details;
+        return R.layout.fragment_device_list;
     }
 
     @Override
@@ -75,11 +75,11 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
 
 
         viewModel.getDevices()
-                .observe(this, listResource -> {
-                    if(null != listResource ){
+                .observe(this, resource -> {
+                    if(null != resource ){
                         dataBinding.waitProgress.setVisibility(View.GONE);
                     }
-                    dataBinding.setResource(listResource);
+                    dataBinding.setResource(resource);
 
                     // If the cached data is already showing then no need to show the error
                     if(null != dataBinding.recyclerView.getAdapter() && dataBinding.recyclerView.getAdapter().getItemCount() > 0){

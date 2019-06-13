@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.databinding.ItemDeviceBinding;
 import com.webee.challange.view.base.BaseAdapter;
 import com.webee.challange.view.callback.DeviceListCallback;
 
@@ -89,13 +90,13 @@ public class DeviceListAdapter extends BaseAdapter<DeviceListAdapter.DeviceViewH
     static class DeviceViewHolder extends RecyclerView.ViewHolder {
 
         private static DeviceViewHolder create(LayoutInflater inflater, ViewGroup parent, DeviceListCallback callback) {
-            ItemDeviceListBinding itemMovieListBinding = ItemDeviceListBinding.inflate(inflater, parent, false);
+            ItemDeviceBinding itemMovieListBinding = ItemDeviceBinding.inflate(inflater, parent, false);
             return new DeviceViewHolder(itemMovieListBinding, callback);
         }
 
-        final ItemDeviceListBinding binding;
+        final ItemDeviceBinding binding;
 
-        private DeviceViewHolder(ItemDeviceListBinding binding, DeviceListCallback callback) {
+        private DeviceViewHolder(ItemDeviceBinding binding, DeviceListCallback callback) {
             super(binding.getRoot());
             this.binding = binding;
             binding.getRoot().setOnClickListener(v ->

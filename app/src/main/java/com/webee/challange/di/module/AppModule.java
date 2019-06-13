@@ -47,7 +47,7 @@ public class AppModule {
     @Provides
     @Singleton
     DeviceDatabase provideDeviceDatabase(Application application) {
-        return Room.databaseBuilder(application, DeviceDatabase.class, "devices.db").build();
+        return Room.databaseBuilder(application, DeviceDatabase.class, "devices.sqlite").build();
     }
 
     @Provides

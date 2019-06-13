@@ -18,7 +18,7 @@ public class DeviceDetailFragment extends BaseFragment<DeviceDetailViewModel, Fr
 
     @Override
     protected int getLayoutRes() {
-        return R.layout.fragment_device_list;
+        return R.layout.fragment_device_details;
     }
 
     @Override
