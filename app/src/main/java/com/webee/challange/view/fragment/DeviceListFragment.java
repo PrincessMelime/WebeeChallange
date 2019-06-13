@@ -1,13 +1,13 @@
-package com.webee.challange.view.frament;
+package com.webee.challange.view.fragment;
 
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.SearchView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.appcompat.widget.SearchView;
 import android.view.*;
 import com.webee.challange.R;
 import com.webee.challange.common.Constants;
@@ -48,7 +48,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
 
             DeviceDetailFragment detailFragment = new DeviceDetailFragment();
             detailFragment.setArguments(args);
-            FragmentUtils.replaceFragment((AppCompatActivity) getActivity(), detailFragment, R.id.fragContainer, true, FragmentUtils.TRANSITION_SLIDE_LEFT_RIGHT);
+            FragmentUtils.replaceFragment((AppCompatActivity) getActivity(), detailFragment, R.id.nav_host_fragment, true, FragmentUtils.TRANSITION_SLIDE_LEFT_RIGHT);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.webee.challange.data;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import com.webee.challange.data.dao.DeviceDao;
 import com.webee.challange.data.entity.DeviceEntity;
 import com.webee.challange.view.callback.ResponseListener;

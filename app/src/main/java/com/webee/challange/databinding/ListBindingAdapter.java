@@ -1,7 +1,7 @@
 package com.webee.challange.databinding;
 
-import android.support.v7.widget.RecyclerView;
-import android.databinding.BindingAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.databinding.BindingAdapter;
 import com.webee.challange.data.Resource;
 import com.webee.challange.view.base.BaseAdapter;
 

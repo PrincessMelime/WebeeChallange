@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/newDeviceFragment"
+            android:icon="@drawable/ic_new_device"
+            android:title="@string/new_device" />
+
+    <item
+            android:id="@+id/deviceListFragment"
+            android:icon="@drawable/ic_device_list"
+            android:title="@string/device_list" />
+
+    <item
+            android:id="@+id/weatherFragment"
+            android:icon="@drawable/ic_weather"
+            android:title="@string/weather" />
+
+</menu>

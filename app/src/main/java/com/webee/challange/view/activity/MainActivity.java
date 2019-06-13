@@ -1,17 +1,32 @@
 package com.webee.challange.view.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 import android.view.MenuItem;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 import com.webee.challange.R;
 import com.webee.challange.databinding.ActivityMainBinding;
-import com.webee.challange.utils.FragmentUtils;
 import com.webee.challange.view.base.BaseActivity;
-import com.webee.challange.view.frament.DeviceListFragment;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
 
-import static com.webee.challange.utils.FragmentUtils.TRANSITION_NONE;
+import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
+
+
+     @Override
+    public AndroidInjector<Fragment> supportFragmentInjector() {
+        return super.supportFragmentInjector();
+    }
+
+    private NavController mNavController;
+
 
     @Override
     public int getLayoutRes() {
@@ -21,11 +36,31 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FragmentUtils.replaceFragment(this, DeviceListFragment.newInstance(), R.id.fragContainer, false, TRANSITION_NONE);
+
+       // ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        setSupportActionBar(dataBinding.toolbar);
+
+        dataBinding.toolbar.setTitle("");
+
+        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
+
+        NavigationUI.setupActionBarWithNavController(this, mNavController);
+
+        NavigationUI.setupWithNavController(dataBinding.bottomNave, mNavController);
+
+        //FragmentUtils.replaceFragment(this, DeviceListFragment.newInstance(), R.id.fragContainer, false, TRANSITION_NONE);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return false;
+        boolean navigated = NavigationUI.onNavDestinationSelected(item, mNavController);
+        return navigated || super.onOptionsItemSelected(item);
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        return NavigationUI.navigateUp(mNavController, (DrawerLayout) null);
+    }
+
 }

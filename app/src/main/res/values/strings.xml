@@ -2,4 +2,7 @@
     <string name="app_name">Challange</string>
     <string name="action_search">Search</string>
     <string name="search_hint">mac_address</string>
+    <string name="new_device">New Device</string>
+    <string name="device_list">Device List</string>
+    <string name="weather">Weather</string>
 </resources>

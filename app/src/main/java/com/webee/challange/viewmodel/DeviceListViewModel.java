@@ -1,7 +1,7 @@
 package com.webee.challange.viewmodel;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 import com.webee.challange.data.DeviceRepository;
 import com.webee.challange.data.Resource;
 import com.webee.challange.data.entity.DeviceEntity;

@@ -1,6 +1,6 @@
 package com.webee.challange.data.remote;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.Request;

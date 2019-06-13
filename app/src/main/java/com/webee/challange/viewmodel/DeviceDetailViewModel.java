@@ -1,7 +1,7 @@
 package com.webee.challange.viewmodel;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 import com.webee.challange.data.DeviceRepository;
 import com.webee.challange.data.entity.DeviceEntity;
 import com.webee.challange.utils.SingleLiveEvent;
@@ -48,7 +48,7 @@ public class DeviceDetailViewModel extends ViewModel {
         this.id = id;
     }
 
-    public void loadArticleDetails(){
+    public void loadDeviceDetails(){
 
         if(null != deviceRepository) {
             deviceRepository.obtainDevice(id, new ResponseListener() {

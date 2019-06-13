@@ -1,7 +1,7 @@
 package com.webee.challange.di.module;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import com.webee.challange.data.DeviceDatabase;
 import com.webee.challange.data.dao.DeviceDao;
 import com.webee.challange.data.remote.ApiConstants;

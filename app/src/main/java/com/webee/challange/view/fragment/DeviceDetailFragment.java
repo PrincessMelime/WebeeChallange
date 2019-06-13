@@ -1,8 +1,8 @@
-package com.webee.challange.view.frament;
+package com.webee.challange.view.fragment;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.view.View;
 import com.webee.challange.R;
 import com.webee.challange.common.Constants;
