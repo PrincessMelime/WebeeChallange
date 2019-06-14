@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import com.webee.challange.R;
 import com.webee.challange.databinding.FragmentNewDeviceBinding;
 import com.webee.challange.view.base.BaseFragment;
@@ -33,6 +34,21 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
+        observeTimePickerDialogData();
+        dataBinding.setViewNewDeviceViewModel(viewModel);
         return dataBinding.getRoot();
+    }
+
+
+    private void setTimePickerDialog() {
+        DialogFragment dialog = new DatePickerFragment();
+        dialog.show(getFragmentManager(),"data_picker");
+
+    }
+
+    private void observeTimePickerDialogData() {
+        viewModel.getDatePickerDialogDisplayValue().observe(this, display -> {
+            if(display) setTimePickerDialog(); // Display TimePickerDialog
+        });
     }
 }

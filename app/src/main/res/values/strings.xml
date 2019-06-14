@@ -5,4 +5,9 @@
     <string name="new_device">New Device</string>
     <string name="device_list">Device List</string>
     <string name="weather">Weather</string>
+    <string name="date_of_entry">Date Of Entry</string>
+    <string name="device_name">Device\'s Name</string>
+    <string name="mac_address">Mac Address</string>
+    <string name="add_device">Add Device</string>
+
 </resources>

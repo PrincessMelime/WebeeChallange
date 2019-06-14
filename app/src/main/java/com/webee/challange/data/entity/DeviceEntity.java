@@ -18,7 +18,7 @@ public class DeviceEntity {
     @SerializedName("mac_address")
     private String macAddress;
 
-    @SerializedName("created_date")
+    @SerializedName("date_of_entry")
     private String createdDate;
 
     public long getId() {

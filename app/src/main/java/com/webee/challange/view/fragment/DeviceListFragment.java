@@ -44,7 +44,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
             Bundle args = new Bundle();
             args.putString(Constants.BUNDLE_KEY_DEVICE_NAME, deviceEntity.getName());
             args.putString(Constants.BUNDLE_KEY_DEVICE_MAC_ADDRESS, deviceEntity.getMacAddress());
-            args.putString(Constants.BUNDLE_KEY_DEVICE_CREATED_DATE, deviceEntity.getCreatedDate());
+            args.putString(Constants.BUNDLE_KEY_DEVICE_DATE_OF_ENTRY, deviceEntity.getCreatedDate());
 
             DeviceDetailFragment detailFragment = new DeviceDetailFragment();
             detailFragment.setArguments(args);

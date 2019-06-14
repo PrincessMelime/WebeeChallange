@@ -29,7 +29,7 @@ public class DeviceDetailFragment extends BaseFragment<DeviceDetailViewModel, Fr
 
                 dataBinding.textName.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_NAME));
                 dataBinding.textMacAddress.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_MAC_ADDRESS));
-                dataBinding.textCreatedDate.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_CREATED_DATE));
+                dataBinding.textCreatedDate.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_DATE_OF_ENTRY));
                 dataBinding.loadingProgress.setVisibility(View.GONE);
             }
 
