@@ -1,6 +1,7 @@
 package com.webee.challange.view.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,20 @@ public class WeatherFragment extends BaseFragment<WeatherViewModel, FragmentWeat
 
 
                 });
+
+        runUpdaterThread();
+    }
+
+    private void runUpdaterThread() {
+
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                viewModel.getWeatherFromAPI();
+            }
+        },200);
     }
 
 }
