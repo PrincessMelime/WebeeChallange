@@ -39,7 +39,27 @@ public class WeatherFragment extends BaseFragment<WeatherViewModel, FragmentWeat
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Bundle args = getArguments();
+        viewModel.getWeather()
+                .observe(this, resource -> {
+                    if (null != resource.data) {
 
+                        dataBinding.waitProgress.setVisibility(View.GONE);
+
+                        if (resource.getMessage() != null) {
+                            dataBinding.txtMessage.setText(resource.getMessage());
+                            dataBinding.txtMessage.setVisibility(View.VISIBLE);
+                            dataBinding.cvWeatherInformation.setVisibility(View.GONE);
+                        } else {
+                            dataBinding.setResource(resource.data);
+                            dataBinding.cvWeatherInformation.setVisibility(View.VISIBLE);
+                        }
+
+                    } else {
+                        dataBinding.cvWeatherInformation.setVisibility(View.GONE);
+                    }
+
+
+                });
     }
+
 }

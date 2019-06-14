@@ -1,13 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-
-        <import type="android.view.View" />
+        <import type="android.view.View"/>
 
         <variable
-                name="weather"
-                type="com.webee.challange.data.local.entity.WeatherEntity" />
+                name="resource"
+                type="com.webee.challange.data.local.entity.WeatherEntity"/>
 
     </data>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"></LinearLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+
+
+        <ProgressBar
+                android:id="@+id/waitProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/colorPrimary"
+                android:indeterminateTintMode="src_in"
+                android:visibility="visible"/>
+        <TextView
+                android:id="@+id/txt_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+            <androidx.cardview.widget.CardView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/cv_weather_information"
+                    android:layout_width="match_parent"
+                    app:cardBackgroundColor="@color/colorCardView"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardElevation="1dp">
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:padding="14dp"
+                        tools:ignore="RtlHardcoded">
+
+                    <ImageView
+                            android:id="@+id/iv_weather_image"
+                            android:layout_width="@dimen/weather_image_size"
+                            android:layout_height="@dimen/weather_image_size"
+                            android:visibility="visible"
+                            android:layout_centerHorizontal="true"
+                            app:weather_pic="@{resource.imgUrl}"/>
+
+                    <TextView
+                            android:id="@+id/txt_temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/iv_weather_image"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+                            android:textSize="40sp"
+                            android:layout_margin="@dimen/common_margin"
+                            android:textStyle="bold"
+                            android:text="@{String.format(@string/temperature_string, Float.toString(resource.temperature))}"/>
+
+                    <TextView
+                            android:id="@+id/txt_min_temp"
+                            android:layout_below="@+id/txt_temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="@{String.format(@string/temp_min, Float.toString(resource.tempMin))}"/>
+
+
+                    <TextView
+                            android:id="@+id/txt_max_temp"
+                            android:layout_below="@+id/txt_min_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="@{String.format(@string/temp_max, Float.toString(resource.tempMax))}"/>
+                    <TextView
+                            android:id="@+id/txt_humidity"
+                            android:layout_below="@+id/txt_max_temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="@{String.format(@string/humidity, Float.toString(resource.humidity))}"/>
+
+                    <TextView
+                            android:id="@+id/txt_pressure"
+                            android:layout_below="@+id/txt_humidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="@{String.format(@string/pressure, Float.toString(resource.pressure))}"/>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+    </RelativeLayout>
 </layout>

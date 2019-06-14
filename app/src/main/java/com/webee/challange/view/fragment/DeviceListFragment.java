@@ -69,8 +69,9 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
                 .observe(this, resource -> {
                     if(null != resource ){
                         dataBinding.waitProgress.setVisibility(View.GONE);
+                        dataBinding.setResource(resource);
                     }
-                    dataBinding.setResource(resource);
+
 
                     // If the cached data is already showing then no need to show the error
                     if(null != dataBinding.recyclerView.getAdapter() && dataBinding.recyclerView.getAdapter().getItemCount() > 0){

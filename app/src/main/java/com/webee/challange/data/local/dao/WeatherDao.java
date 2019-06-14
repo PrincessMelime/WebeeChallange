@@ -11,9 +11,9 @@ import com.webee.challange.data.local.entity.WeatherEntity;
 @Dao
 public interface WeatherDao {
 
-    @Query("SELECT * FROM weather WHERE id=:id")
-    LiveData<WeatherEntity> getWeather(long id);
+    @Query("SELECT * FROM weather")
+    LiveData<WeatherEntity> getWeather();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void saveWeather(WeatherEntity deviceEntity);
+    void saveWeather(WeatherEntity weatherEntity);
 }

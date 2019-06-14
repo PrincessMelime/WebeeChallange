@@ -21,6 +21,10 @@ public class DeviceEntity {
     @SerializedName("date_of_entry")
     private String dateOfEntry;
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }

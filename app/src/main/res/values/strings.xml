@@ -15,6 +15,14 @@
     <string name="success_device_save">The device was successfully added</string>
     <string name="unsuccessful_device_save">An error ocurred. Please try again.</string>
     <string name="no_allowed_dates">* Dates before 01/01/2018 are no allowed</string>
+    <string name="requestTimeOutError">Timeout Error - Check if you have internet</string>
+    <string name="responseMalformedJson">Malformed Json</string>
+    <string name="networkError">Network error- Check if you have internet</string>
+    <string name="unknownError">Unknown error</string>
+    <string name="temperature_string">%s \°C</string>
+    <string name="temp_min"> Min Temp: %s \°C</string>
+    <string name="temp_max">Max Temp: %s \°C</string>
+    <string name="pressure">Pressure: %s hPa</string>
+    <string name="humidity">Humidity: %s %%</string>
 
-    date_of_entry_empty
 </resources>

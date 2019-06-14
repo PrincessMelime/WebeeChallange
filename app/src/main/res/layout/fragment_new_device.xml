@@ -28,77 +28,82 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:visibility="gone"/>
-
-        <LinearLayout
-                android:id="@+id/llFields"
+        <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/common_margin"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
+            <LinearLayout
+                    android:id="@+id/llFields"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="@string/device_name">
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textName"
+                    android:layout_margin="@dimen/common_margin"
+                    android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/device_name">
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textName"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:inputType="textNoSuggestions"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{(edtitable)->viewNewDeviceViewModel.onDeviceNameChange(edtitable)}"
+                            android:textSize="16sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:inputType="textNoSuggestions"
                         android:layout_height="wrap_content"
-                        android:afterTextChanged="@{(edtitable)->viewNewDeviceViewModel.onDeviceNameChange(edtitable)}"
-                        android:textSize="16sp"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="@string/mac_address">
-
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/textMacAddress"
-                        android:inputType="textNoSuggestions"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/mac_address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/textMacAddress"
+                            android:inputType="textNoSuggestions"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:afterTextChanged="@{(edtitable)->viewNewDeviceViewModel.onDeviceMacAddressChange(edtitable)}"
+                            android:textSize="16sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:afterTextChanged="@{(edtitable)->viewNewDeviceViewModel.onDeviceMacAddressChange(edtitable)}"
-                        android:textSize="16sp"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/date_of_entry">
 
-            <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:hint="@string/date_of_entry">
-
-                <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etDateOfEntry"
-                        android:textSize="16sp"
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etDateOfEntry"
+                            android:textSize="16sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="date"
+                            android:focusable="false"
+                            android:onClick="@{() -> viewNewDeviceViewModel.onDisplayTimePickerDialogClick()}"
+                            android:maxLines="1"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="date"
-                        android:focusable="false"
-                        android:onClick="@{() -> viewNewDeviceViewModel.onDisplayTimePickerDialogClick()}"
-                        android:maxLines="1"/>
-            </com.google.android.material.textfield.TextInputLayout>
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="@string/no_allowed_dates"/>
-        </LinearLayout>
+                        android:textSize="10sp"
+                        android:text="@string/no_allowed_dates"/>
 
-        <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAdd"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/add_device"
-                android:onClick="@{() -> viewNewDeviceViewModel.onAddDeviceClick()}"
-                android:layout_below="@+id/llFields"
-                android:layout_centerInParent="true"
-        />
+                <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAdd"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/add_device"
+                        android:padding="@dimen/common_margin"
+                        android:onClick="@{() -> viewNewDeviceViewModel.onAddDeviceClick()}"
+                        android:layout_gravity="center_horizontal|bottom"
+                />
+            </LinearLayout>
 
+
+        </ScrollView>
     </RelativeLayout>
 </layout>

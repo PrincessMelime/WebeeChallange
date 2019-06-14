@@ -6,59 +6,61 @@ import com.google.gson.annotations.SerializedName;
 
 
 @Entity(tableName = "weather")
-
 public class WeatherEntity {
 
-    @PrimaryKey(autoGenerate = true)
-    @SerializedName("id")
-    private long id;
+    @PrimaryKey
+    private int id;
 
     @SerializedName("temperature")
-    private String temperature;
+    private float temperature;
 
     @SerializedName("temp_max")
-    private String tempMax;
+    private float tempMax;
 
     @SerializedName("temp_min")
-    private String tempMin;
+    private float tempMin;
 
     @SerializedName("main")
     private String main;
 
     @SerializedName("humidity")
-    private String humidity;
+    private float humidity;
 
     @SerializedName("pressure")
-    private String pressure;
+    private float pressure;
 
     @SerializedName("img_url")
     private String imgUrl;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public String getTemperature() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public float getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(String temperature) {
+    public void setTemperature(float temperature) {
         this.temperature = temperature;
     }
 
-    public String getTempMax() {
+    public float getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(String tempMax) {
+    public void setTempMax(float tempMax) {
         this.tempMax = tempMax;
     }
 
-    public String getTempMin() {
+    public float getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(String tempMin) {
+    public void setTempMin(float tempMin) {
         this.tempMin = tempMin;
     }
 
@@ -70,19 +72,19 @@ public class WeatherEntity {
         this.main = main;
     }
 
-    public String getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(String humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
 
-    public String getPressure() {
+    public float getPressure() {
         return pressure;
     }
 
-    public void setPressure(String pressure) {
+    public void setPressure(float pressure) {
         this.pressure = pressure;
     }
 

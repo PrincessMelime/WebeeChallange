@@ -1,4 +1,4 @@
-package com.webee.challange.data.remote.model;
+package com.webee.challange.data.remote.repository;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,26 +9,29 @@ public class WeatherResponse {
 
     @SerializedName("coord")
     public Coord coord;
-    @SerializedName("sys")
-    public Sys sys;
     @SerializedName("weather")
-    public ArrayList weather = new ArrayList();
+    public ArrayList<Weather> weather = new ArrayList<>();
+    @SerializedName("base")
+    public String base;
     @SerializedName("main")
     public Main main;
+    @SerializedName("visibility")
+    public int visivility;
     @SerializedName("wind")
     public Wind wind;
-    @SerializedName("rain")
-    public Rain rain;
     @SerializedName("clouds")
     public Clouds clouds;
     @SerializedName("dt")
     public float dt;
+    @SerializedName("sys")
+    public Sys sys;
     @SerializedName("id")
     public int id;
     @SerializedName("name")
     public String name;
     @SerializedName("cod")
     public float cod;
+
 }
 
 class Weather {
@@ -62,17 +65,24 @@ class Wind {
 class Main {
     @SerializedName("temp")
     public float temp;
-    @SerializedName("humidity")
-    public float humidity;
     @SerializedName("pressure")
     public float pressure;
+    @SerializedName("humidity")
+    public float humidity;
     @SerializedName("temp_min")
     public float temp_min;
     @SerializedName("temp_max")
     public float temp_max;
+
 }
 
 class Sys {
+    @SerializedName("type")
+    public int type;
+    @SerializedName("id")
+    public int id;
+    @SerializedName("message")
+    public float message;
     @SerializedName("country")
     public String country;
     @SerializedName("sunrise")

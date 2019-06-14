@@ -87,11 +87,11 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
         }
     }
 
-    public LiveData<Boolean> getDatePickerDialogDisplayValue() {
+    public MutableLiveData<Boolean> getDatePickerDialogDisplayValue() {
         return display;
     }
 
-    public LiveData<String> getDayOfEntryValue() {
+    public MutableLiveData<String> getDayOfEntryValue() {
         return dateOfEntry;
     }
 
