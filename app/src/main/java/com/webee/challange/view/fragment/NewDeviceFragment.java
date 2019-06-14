@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.webee.challange.R;
@@ -38,6 +39,8 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
         observeNameValue();
         observeMacAddressErrorValue();
         observeDateOfEntryErrorValue();
+        observeSuccessSaveValue();
+        observeShowProgressValue();
         dataBinding.setViewNewDeviceViewModel(viewModel);
         return dataBinding.getRoot();
     }
@@ -67,6 +70,34 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
 
     private void setDateOfEntryValue(String dateOfEntry) {
         dataBinding.etDateOfEntry.setText(dateOfEntry);
+
+    }
+
+    private void setSuccessSave(boolean successSave) {
+        if (successSave) {
+            dataBinding.llFields.setVisibility(View.GONE);
+            dataBinding.btnAdd.setVisibility(View.GONE);
+            dataBinding.txtMessage.setVisibility(View.VISIBLE);
+            dataBinding.txtMessage.setText(R.string.success_device_save);
+        } else {
+            Toast.makeText(getContext(), getResources().getString(R.string.unsuccessful_device_save), Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
+    private void setShowProgress(boolean showProgress) {
+        if (showProgress) {
+            dataBinding.llFields.setVisibility(View.GONE);
+            dataBinding.btnAdd.setVisibility(View.GONE);
+            dataBinding.txtMessage.setVisibility(View.GONE);
+            dataBinding.loadingProgress.setVisibility(View.VISIBLE);
+        }else{
+            dataBinding.llFields.setVisibility(View.VISIBLE);
+            dataBinding.btnAdd.setVisibility(View.VISIBLE);
+            dataBinding.txtMessage.setVisibility(View.GONE);
+            dataBinding.loadingProgress.setVisibility(View.GONE);
+        }
 
     }
 
@@ -100,5 +131,16 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
         });
     }
 
+    private void observeSuccessSaveValue() {
+        viewModel.getSuccessSave().observe(this, successSave -> {
+            setSuccessSave(successSave); // Change etDateOfEntry value
+        });
+    }
+
+    private void observeShowProgressValue() {
+        viewModel.getShowProgress().observe(this, showProgress -> {
+            setShowProgress(showProgress); // Change etDateOfEntry value
+        });
+    }
 
 }

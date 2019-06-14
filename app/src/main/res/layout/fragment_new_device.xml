@@ -20,6 +20,14 @@
                 android:indeterminateTint="@color/colorPrimary"
                 android:indeterminateTintMode="src_in"
                 android:visibility="gone"/>
+        <TextView
+                android:id="@+id/txt_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
 
         <LinearLayout
                 android:id="@+id/llFields"

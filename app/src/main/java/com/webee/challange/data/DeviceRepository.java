@@ -39,4 +39,9 @@ public class DeviceRepository {
 
         return deviceDao.getDevice(id);
     }
+
+    public void saveDevice(DeviceEntity deviceEntity) {
+
+        deviceDao.saveDevice(deviceEntity);
+    }
 }

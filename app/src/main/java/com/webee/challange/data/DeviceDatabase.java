@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase;
 import com.webee.challange.data.dao.DeviceDao;
 import com.webee.challange.data.entity.DeviceEntity;
 
-@Database(entities = {DeviceEntity.class}, version = 2)
+@Database(entities = {DeviceEntity.class}, version = 3)
 public abstract class DeviceDatabase extends RoomDatabase {
     public abstract DeviceDao deviceDao();
 }

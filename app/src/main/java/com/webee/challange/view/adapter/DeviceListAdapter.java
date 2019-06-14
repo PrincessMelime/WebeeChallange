@@ -49,7 +49,9 @@ public class DeviceListAdapter extends BaseAdapter<DeviceListAdapter.DeviceViewH
 
     @Override
     public int getItemCount() {
-        return deviceEntitiesFiltered.size();
+        if (deviceEntitiesFiltered!=null)
+            return deviceEntitiesFiltered.size();
+        return 0;
     }
 
     @Override

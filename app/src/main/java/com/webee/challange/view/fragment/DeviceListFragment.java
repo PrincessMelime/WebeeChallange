@@ -21,12 +21,6 @@ import com.webee.challange.viewmodel.DeviceListViewModel;
 
 public class DeviceListFragment extends BaseFragment<DeviceListViewModel, FragmentDeviceListBinding> implements DeviceListCallback {
 
-    public static DeviceListFragment newInstance() {
-        Bundle args = new Bundle();
-        DeviceListFragment fragment = new DeviceListFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public Class<DeviceListViewModel> getViewModel() {
@@ -44,7 +38,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
             Bundle args = new Bundle();
             args.putString(Constants.BUNDLE_KEY_DEVICE_NAME, deviceEntity.getName());
             args.putString(Constants.BUNDLE_KEY_DEVICE_MAC_ADDRESS, deviceEntity.getMacAddress());
-            args.putString(Constants.BUNDLE_KEY_DEVICE_DATE_OF_ENTRY, deviceEntity.getCreatedDate());
+            args.putString(Constants.BUNDLE_KEY_DEVICE_DATE_OF_ENTRY, deviceEntity.getDateOfEntry());
 
             DeviceDetailFragment detailFragment = new DeviceDetailFragment();
             detailFragment.setArguments(args);

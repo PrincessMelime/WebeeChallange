@@ -12,6 +12,8 @@
     <string name="name_no_empty">The name is empty</string>
     <string name="mac_address_format">The mac address is empty or the format is wrong</string>
     <string name="date_of_entry_empty">The name is empty</string>
+    <string name="success_device_save">The device was successfully added</string>
+    <string name="unsuccessful_device_save">An error ocurred. Please try again.</string>
 
     date_of_entry_empty
 </resources>

@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 @Entity(tableName = "devices")
 public class DeviceEntity {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @SerializedName("id")
     private long id;
 
@@ -19,7 +19,7 @@ public class DeviceEntity {
     private String macAddress;
 
     @SerializedName("date_of_entry")
-    private String createdDate;
+    private String dateOfEntry;
 
     public long getId() {
         return id;
@@ -45,11 +45,11 @@ public class DeviceEntity {
         this.macAddress = macAddress;
     }
 
-    public String getCreatedDate() {
-        return createdDate;
+    public String getDateOfEntry() {
+        return dateOfEntry;
     }
 
-    public void setCreatedDate(String createdDate) {
-        this.createdDate = createdDate;
+    public void setDateOfEntry(String dateOfEntry) {
+        this.dateOfEntry = dateOfEntry;
     }
 }
