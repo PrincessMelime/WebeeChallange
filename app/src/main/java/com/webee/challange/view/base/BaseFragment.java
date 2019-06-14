@@ -48,4 +48,6 @@ public abstract class BaseFragment<V extends ViewModel, D extends ViewDataBindin
 
     public BaseFragment() {
     }
+
+
 }

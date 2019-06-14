@@ -9,5 +9,9 @@
     <string name="device_name">Device\'s Name</string>
     <string name="mac_address">Mac Address</string>
     <string name="add_device">Add Device</string>
+    <string name="name_no_empty">The name is empty</string>
+    <string name="mac_address_format">The mac address is empty or the format is wrong</string>
+    <string name="date_of_entry_empty">The name is empty</string>
 
+    date_of_entry_empty
 </resources>
