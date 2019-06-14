@@ -1,4 +1,4 @@
-package com.webee.challange.data.entity;
+package com.webee.challange.data.local.entity;
 
 
 import androidx.room.Entity;
@@ -23,10 +23,6 @@ public class DeviceEntity {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {

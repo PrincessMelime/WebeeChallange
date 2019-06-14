@@ -6,7 +6,7 @@
 
         <variable
                 name="resource"
-                type="com.webee.challange.data.Resource" />
+                type="com.webee.challange.data.remote.Resource" />
 
     </data>
 

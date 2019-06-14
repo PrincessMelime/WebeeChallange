@@ -2,7 +2,6 @@ package com.webee.challange.view.activity;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import android.view.MenuItem;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -13,9 +12,7 @@ import com.webee.challange.R;
 import com.webee.challange.databinding.ActivityMainBinding;
 import com.webee.challange.view.base.BaseActivity;
 import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
 
-import javax.inject.Inject;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
@@ -37,11 +34,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-       // ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
         setSupportActionBar(dataBinding.toolbar);
-
-        dataBinding.toolbar.setTitle("");
 
         mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
@@ -49,7 +42,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
         NavigationUI.setupWithNavController(dataBinding.bottomNave, mNavController);
 
-        //FragmentUtils.replaceFragment(this, DeviceListFragment.newInstance(), R.id.fragContainer, false, TRANSITION_NONE);
     }
 
 

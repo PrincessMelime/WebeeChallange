@@ -1,9 +1,10 @@
-package com.webee.challange.data;
+package com.webee.challange.data.local.repository;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
-import com.webee.challange.data.dao.DeviceDao;
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.local.dao.DeviceDao;
+import com.webee.challange.data.local.entity.DeviceEntity;
+import com.webee.challange.data.remote.Resource;
 import com.webee.challange.view.callback.ResponseListener;
 
 import javax.inject.Inject;

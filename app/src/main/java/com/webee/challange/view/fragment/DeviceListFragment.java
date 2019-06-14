@@ -5,15 +5,12 @@ import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.appcompat.widget.SearchView;
 import android.view.*;
 import com.webee.challange.R;
-import com.webee.challange.common.Constants;
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.local.entity.DeviceEntity;
 import com.webee.challange.databinding.FragmentDeviceListBinding;
-import com.webee.challange.utils.FragmentUtils;
 import com.webee.challange.view.adapter.DeviceListAdapter;
 import com.webee.challange.view.base.BaseFragment;
 import com.webee.challange.view.callback.DeviceListCallback;
@@ -34,7 +31,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
 
     @Override
     public void onDeviceClicked(DeviceEntity deviceEntity) {
-        if(null != getActivity()){
+       /* if(null != getActivity()){
             Bundle args = new Bundle();
             args.putString(Constants.BUNDLE_KEY_DEVICE_NAME, deviceEntity.getName());
             args.putString(Constants.BUNDLE_KEY_DEVICE_MAC_ADDRESS, deviceEntity.getMacAddress());
@@ -43,7 +40,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
             DeviceDetailFragment detailFragment = new DeviceDetailFragment();
             detailFragment.setArguments(args);
             FragmentUtils.replaceFragment((AppCompatActivity) getActivity(), detailFragment, R.id.nav_host_fragment, true, FragmentUtils.TRANSITION_SLIDE_LEFT_RIGHT);
-        }
+        }*/
     }
 
 

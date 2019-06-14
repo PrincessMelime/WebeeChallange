@@ -43,4 +43,9 @@ public abstract class BaseActivity<D extends ViewDataBinding> extends AppCompatA
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return fragmentAndroidInjector;
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        return super.onSupportNavigateUp();
+    }
 }

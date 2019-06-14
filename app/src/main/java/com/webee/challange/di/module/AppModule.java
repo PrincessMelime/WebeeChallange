@@ -2,8 +2,9 @@ package com.webee.challange.di.module;
 
 import android.app.Application;
 import androidx.room.Room;
-import com.webee.challange.data.DeviceDatabase;
-import com.webee.challange.data.dao.DeviceDao;
+import com.webee.challange.data.ApplicationDatabase;
+import com.webee.challange.data.local.dao.DeviceDao;
+import com.webee.challange.data.local.dao.WeatherDao;
 import com.webee.challange.data.remote.ApiConstants;
 import com.webee.challange.data.remote.ApiService;
 import com.webee.challange.data.remote.RequestInterceptor;
@@ -46,14 +47,21 @@ public class AppModule {
 
     @Provides
     @Singleton
-    DeviceDatabase provideDeviceDatabase(Application application) {
-        return Room.databaseBuilder(application, DeviceDatabase.class, "devices.sqlite").build();
+    ApplicationDatabase provideDeviceDatabase(Application application) {
+        return Room.databaseBuilder(application, ApplicationDatabase.class, "application.sqlite").build();
     }
 
     @Provides
     @Singleton
-    DeviceDao provideDeviceDao(DeviceDatabase deviceDatabase) {
-        return deviceDatabase.deviceDao();
+    DeviceDao provideDeviceDao(ApplicationDatabase applicationDatabase) {
+        return applicationDatabase.deviceDao();
     }
+
+    @Provides
+    @Singleton
+    WeatherDao provideWeatherDao(ApplicationDatabase applicationDatabase) {
+        return applicationDatabase.weatherDao();
+    }
+
 
 }

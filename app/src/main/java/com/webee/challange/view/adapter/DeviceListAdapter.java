@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.local.entity.DeviceEntity;
 import com.webee.challange.databinding.ItemDeviceBinding;
 import com.webee.challange.view.base.BaseAdapter;
 import com.webee.challange.view.callback.DeviceListCallback;

@@ -6,23 +6,15 @@
 
     <fragment
             android:id="@+id/newDeviceFragment"
+
             android:name="com.webee.challange.view.fragment.NewDeviceFragment"
             android:label="New Device" >
-        <action
-                android:id="@+id/action_weatherFragment_to_settingsFragment"
-                app:destination="@id/deviceListFragment"
-                app:popUpTo="@id/deviceListFragment" />
-
 
     </fragment>
     <fragment
             android:id="@+id/deviceListFragment"
             android:name="com.webee.challange.view.fragment.DeviceListFragment"
             android:label="Device List">
-        <action
-                android:id="@+id/action_weatherFragment_to_settingsFragment"
-                app:destination="@id/weatherFragment"
-                app:popUpTo="@id/weatherFragment" />
 
     </fragment>
 

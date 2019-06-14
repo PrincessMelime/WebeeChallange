@@ -2,8 +2,8 @@ package com.webee.challange.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.webee.challange.data.DeviceRepository;
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.local.repository.DeviceRepository;
+import com.webee.challange.data.local.entity.DeviceEntity;
 import com.webee.challange.utils.SingleLiveEvent;
 import com.webee.challange.view.callback.ResponseListener;
 

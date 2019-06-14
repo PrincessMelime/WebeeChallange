@@ -6,8 +6,8 @@ import android.widget.DatePicker;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.webee.challange.data.DeviceRepository;
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.local.repository.DeviceRepository;
+import com.webee.challange.data.local.entity.DeviceEntity;
 
 import javax.inject.Inject;
 

@@ -1,6 +1,6 @@
 package com.webee.challange.view.callback;
 
-import com.webee.challange.data.entity.DeviceEntity;
+import com.webee.challange.data.local.entity.DeviceEntity;
 
 public interface ResponseListener {
 

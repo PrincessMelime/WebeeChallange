@@ -22,7 +22,7 @@
                 android:visibility="gone"/>
         <TextView
                 android:id="@+id/txt_message"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="16sp"
@@ -83,6 +83,11 @@
                         android:onClick="@{() -> viewNewDeviceViewModel.onDisplayTimePickerDialogClick()}"
                         android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="@string/no_allowed_dates"/>
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
