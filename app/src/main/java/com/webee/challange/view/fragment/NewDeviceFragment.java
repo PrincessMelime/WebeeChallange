@@ -49,8 +49,6 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
     private void setTimePickerDialog() {
         DatePickerFragment dialog = new DatePickerFragment(viewModel);
         dialog.show(getFragmentManager(), "data_picker");
-
-
     }
 
     private void setNameError(boolean showError) {
@@ -92,7 +90,7 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
             dataBinding.btnAdd.setVisibility(View.GONE);
             dataBinding.txtMessage.setVisibility(View.GONE);
             dataBinding.loadingProgress.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             dataBinding.llFields.setVisibility(View.VISIBLE);
             dataBinding.btnAdd.setVisibility(View.VISIBLE);
             dataBinding.txtMessage.setVisibility(View.GONE);
@@ -102,45 +100,44 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
     }
 
     private void observeTimePickerDialogDisplayValue() {
-        viewModel.getDatePickerDialogDisplayValue().observe(this, display -> {
+        viewModel.getDatePickerDialogDisplayValue().observe(getViewLifecycleOwner(), display -> {
             if (display) setTimePickerDialog(); // Display TimePickerDialog
         });
     }
 
     private void observeNameValue() {
-        viewModel.getShowNameError().observe(this, showError -> {
+        viewModel.getShowNameError().observe(getViewLifecycleOwner(), showError -> {
             setNameError(showError);
         });
     }
 
     private void observeMacAddressErrorValue() {
-        viewModel.getShowMacAddressError().observe(this, showError -> {
+        viewModel.getShowMacAddressError().observe(getViewLifecycleOwner(), showError -> {
             setMacAddressError(showError);
         });
     }
 
     private void observeDateOfEntryErrorValue() {
-        viewModel.getShowDateOfEntryError().observe(this, showError -> {
+        viewModel.getShowDateOfEntryError().observe(getViewLifecycleOwner(), showError -> {
             setDateOfEntryError(showError);
         });
     }
 
     private void observeDateOfEntryValue() {
-        viewModel.getDayOfEntryValue().observe(this, dateOfEntry -> {
+        viewModel.getDayOfEntryValue().observe(getViewLifecycleOwner(), dateOfEntry -> {
             if (dateOfEntry != "") setDateOfEntryValue(dateOfEntry); // Change etDateOfEntry value
         });
     }
 
     private void observeSuccessSaveValue() {
-        viewModel.getSuccessSave().observe(this, successSave -> {
+        viewModel.getSuccessSave().observe(getViewLifecycleOwner(), successSave -> {
             setSuccessSave(successSave); // Change etDateOfEntry value
         });
     }
 
     private void observeShowProgressValue() {
-        viewModel.getShowProgress().observe(this, showProgress -> {
+        viewModel.getShowProgress().observe(getViewLifecycleOwner(), showProgress -> {
             setShowProgress(showProgress); // Change etDateOfEntry value
         });
     }
-
 }

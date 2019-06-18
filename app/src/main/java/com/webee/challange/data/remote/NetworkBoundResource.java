@@ -23,25 +23,28 @@ public abstract class NetworkBoundResource<T, V> {
     private final MediatorLiveData<Resource<T>> result = new MediatorLiveData<>();
 
 
-        @MainThread
         protected NetworkBoundResource() {
-            result.setValue(Resource.loading(null));
+            result.postValue(Resource.loading(null));
 
             // Always load the data from DB intially so that we have
             LiveData<T> dbSource = loadFromDb();
-
             // Fetch the data from network and add it to the resource
-            result.addSource(dbSource, data -> {
-                result.removeSource(dbSource);
-                if (shouldFetch()) {
-                    fetchFromNetwork(dbSource);
-                } else {
-                    result.addSource(dbSource, newData -> {
-                        if(null != newData)
-                            result.setValue(Resource.success(newData)) ;
-                    });
-                }
-            });
+            try {
+                result.addSource(dbSource, data -> {
+                    result.removeSource(dbSource);
+                    if (shouldFetch()) {
+                        fetchFromNetwork(dbSource);
+                    } else {
+                        result.addSource(dbSource, newData -> {
+                            if(null != newData)
+                                result.postValue(Resource.success(newData)); ;
+                        });
+                    }
+                });
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         }
 
         /**
@@ -49,7 +52,7 @@ public abstract class NetworkBoundResource<T, V> {
          * @param dbSource - Database source
          */
         private void fetchFromNetwork(final LiveData<T> dbSource) {
-            result.addSource(dbSource, newData -> result.setValue(Resource.loading(newData)));
+            result.addSource(dbSource, newData -> result.postValue(Resource.loading(newData)));
             createCall().enqueue(new Callback<V>() {
                 @Override
                 public void onResponse(@NonNull Call<V> call, @NonNull Response<V> response) {
@@ -60,7 +63,7 @@ public abstract class NetworkBoundResource<T, V> {
                 @Override
                 public void onFailure(@NonNull Call<V> call, @NonNull Throwable t) {
                     result.removeSource(dbSource);
-                    result.addSource(dbSource, newData -> result.setValue(Resource.error(getCustomErrorMessage(t), newData)));
+                    result.addSource(dbSource, newData -> result.postValue(Resource.error(getCustomErrorMessage(t), newData)));
                 }
             });
         }
@@ -97,7 +100,7 @@ public abstract class NetworkBoundResource<T, V> {
                 protected void onPostExecute(Void aVoid) {
                     result.addSource(loadFromDb(), newData -> {
                         if (null != newData)
-                            result.setValue(Resource.success(newData));
+                            result.postValue(Resource.success(newData));
                     });
                 }
             }.execute();

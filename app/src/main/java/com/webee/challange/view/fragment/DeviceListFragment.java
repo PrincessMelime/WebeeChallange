@@ -66,7 +66,7 @@ public class DeviceListFragment extends BaseFragment<DeviceListViewModel, Fragme
 
 
         viewModel.getDevices()
-                .observe(this, resource -> {
+                .observe(getViewLifecycleOwner(), resource -> {
                     if(null != resource ){
                         dataBinding.waitProgress.setVisibility(View.GONE);
                         dataBinding.setResource(resource);

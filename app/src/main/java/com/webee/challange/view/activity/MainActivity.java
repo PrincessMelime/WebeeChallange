@@ -17,7 +17,7 @@ import dagger.android.AndroidInjector;
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
 
-     @Override
+    @Override
     public AndroidInjector<Fragment> supportFragmentInjector() {
         return super.supportFragmentInjector();
     }

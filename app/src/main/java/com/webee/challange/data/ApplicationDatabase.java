@@ -8,7 +8,7 @@ import com.webee.challange.data.local.dao.WeatherDao;
 import com.webee.challange.data.local.entity.DeviceEntity;
 import com.webee.challange.data.local.entity.WeatherEntity;
 
-@Database(entities = {DeviceEntity.class, WeatherEntity.class}, version = 3, exportSchema = false)
+@Database(entities = {DeviceEntity.class, WeatherEntity.class}, version = 1, exportSchema = false)
 public abstract class ApplicationDatabase extends RoomDatabase {
     public abstract DeviceDao deviceDao();
 

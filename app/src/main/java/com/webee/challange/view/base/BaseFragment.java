@@ -36,7 +36,7 @@ public abstract class BaseFragment<V extends ViewModel, D extends ViewDataBindin
     public void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidSupportInjection.inject(this);
         super.onCreate(savedInstanceState);
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel());
+        viewModel = ViewModelProviders.of(getActivity(), viewModelFactory).get(getViewModel());
     }
 
     @Nullable

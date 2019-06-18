@@ -34,7 +34,7 @@ public class DeviceDetailFragment extends BaseFragment<DeviceDetailViewModel, Fr
             }
 
 
-        viewModel.getErrorMessageRecieved().observe(this, message ->{
+        viewModel.getErrorMessageRecieved().observe(getViewLifecycleOwner(), message ->{
             dataBinding.loadingProgress.setVisibility(View.GONE);
             dataBinding.textError.setText("Error");
         });

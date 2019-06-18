@@ -1,7 +1,6 @@
 package com.webee.challange.view.fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,47 +33,30 @@ public class WeatherFragment extends BaseFragment<WeatherViewModel, FragmentWeat
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        return dataBinding.getRoot();
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         viewModel.getWeather()
-                .observe(this, resource -> {
-                    if (null != resource.data) {
+                .observe(getViewLifecycleOwner(), resource -> {
+                    if (resource != null) {
+                        if (null != resource.data) {
 
-                        dataBinding.waitProgress.setVisibility(View.GONE);
+                            dataBinding.waitProgress.setVisibility(View.GONE);
 
-                        if (resource.getMessage() != null) {
-                            dataBinding.txtMessage.setText(resource.getMessage());
-                            dataBinding.txtMessage.setVisibility(View.VISIBLE);
-                            dataBinding.cvWeatherInformation.setVisibility(View.GONE);
+                            if (resource.getMessage() != null) {
+                                dataBinding.txtMessage.setText(resource.getMessage());
+                                dataBinding.txtMessage.setVisibility(View.VISIBLE);
+                                dataBinding.cvWeatherInformation.setVisibility(View.GONE);
+                            } else {
+                                dataBinding.setResource(resource.data);
+                                dataBinding.cvWeatherInformation.setVisibility(View.VISIBLE);
+                            }
+
                         } else {
-                            dataBinding.setResource(resource.data);
-                            dataBinding.cvWeatherInformation.setVisibility(View.VISIBLE);
+                            dataBinding.cvWeatherInformation.setVisibility(View.GONE);
                         }
-
-                    } else {
+                    }else
                         dataBinding.cvWeatherInformation.setVisibility(View.GONE);
-                    }
-
-
                 });
 
-        runUpdaterThread();
-    }
-
-    private void runUpdaterThread() {
-
-        Handler handler=new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                viewModel.getWeatherFromAPI();
-            }
-        },200);
+        return dataBinding.getRoot();
     }
 
 }

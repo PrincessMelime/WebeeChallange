@@ -13,7 +13,6 @@ import java.util.List;
 final class ListBindingAdapter {
 
     private ListBindingAdapter() {
-        // Private Constructor to hide the implicit one
     }
 
     @SuppressWarnings("unchecked")
@@ -31,16 +30,12 @@ final class ListBindingAdapter {
         }
     }
 
-
     @BindingAdapter("app:weather_pic")
     public static void loadImage(ImageView imageView, String weather_pic) {
-       System.out.println(weather_pic);
         if (weather_pic != null)
             Picasso.with(imageView.getContext()).load(weather_pic)
                     .error(R.drawable.ic_error)
                     .resizeDimen(R.dimen.weather_image_size, R.dimen.weather_image_size)
                     .centerInside().into(imageView);
     }
-
-
 }

@@ -63,5 +63,4 @@ public class AppModule {
         return applicationDatabase.weatherDao();
     }
 
-
 }

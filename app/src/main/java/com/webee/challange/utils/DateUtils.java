@@ -1,12 +1,10 @@
 package com.webee.challange.utils;
 
 import com.webee.challange.common.Constants;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateUtils {
-
 
     public static long getMinLimitDate(){
         long min_limit_date=0;

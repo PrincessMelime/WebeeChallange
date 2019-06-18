@@ -3,11 +3,10 @@ package com.webee.challange.viewmodel;
 import android.app.DatePickerDialog;
 import android.os.AsyncTask;
 import android.widget.DatePicker;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.webee.challange.data.local.repository.DeviceRepository;
 import com.webee.challange.data.local.entity.DeviceEntity;
+import com.webee.challange.data.local.repository.DeviceRepository;
 
 import javax.inject.Inject;
 
@@ -61,10 +60,10 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
         deviceEntity.setName(deviceName.getValue());
         deviceEntity.setMacAddress(deviceMacAddress.getValue());
         deviceEntity.setDateOfEntry(dateOfEntry.getValue());
-        try{
+        try {
 
             showProgress.setValue(true);
-            new AsyncTask<Void,Void,Void>() {
+            new AsyncTask<Void, Void, Void>() {
 
                 @Override
                 protected Void doInBackground(Void... voids) {
@@ -77,11 +76,10 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
                 protected void onPostExecute(Void none) {
                     showProgress.setValue(false);
                     successSave.setValue(true);
-
                 }
             }.execute();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getLocalizedMessage());
             successSave.setValue(false);
         }
