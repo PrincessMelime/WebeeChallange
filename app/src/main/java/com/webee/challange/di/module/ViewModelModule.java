@@ -7,6 +7,12 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.multibindings.IntoMap;
 
+/**
+ *
+ * Allow inject dependencies via constructor injection
+ *
+ **/
+
 @Module
 public abstract class ViewModelModule {
 
@@ -23,10 +29,6 @@ public abstract class ViewModelModule {
     abstract ViewModel bindsDeviceDetailViewModel(DeviceDetailViewModel deviceDetailViewModel);
 
     @Binds
-    @SuppressWarnings("unused")
-    abstract ViewModelProvider.Factory bindsViewModelFactory(ViewModelFactory viewModelFactory);
-
-    @Binds
     @IntoMap
     @ViewModelKey(WeatherViewModel.class)
     @SuppressWarnings("unused")
@@ -37,4 +39,10 @@ public abstract class ViewModelModule {
     @ViewModelKey(NewDeviceViewModel.class)
     @SuppressWarnings("unused")
     abstract ViewModel bindsNewDeviceViewModel(NewDeviceViewModel newDeviceViewModel);
+
+    @Binds
+    @SuppressWarnings("unused")
+    abstract ViewModelProvider.Factory bindsViewModelFactory(ViewModelFactory viewModelFactory);
+
+
 }

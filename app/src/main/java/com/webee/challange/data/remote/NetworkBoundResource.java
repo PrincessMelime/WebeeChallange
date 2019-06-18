@@ -18,6 +18,12 @@ import retrofit2.Response;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 
+/**
+ *
+ *  A generic class that can provide a resource backed by both the sqlite database and the network.
+ *
+ * */
+
 public abstract class NetworkBoundResource<T, V> {
 
     private final MediatorLiveData<Resource<T>> result = new MediatorLiveData<>();

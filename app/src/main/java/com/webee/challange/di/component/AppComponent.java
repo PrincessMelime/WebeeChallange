@@ -10,6 +10,12 @@ import dagger.android.AndroidInjectionModule;
 
 import javax.inject.Singleton;
 
+/**
+ *
+ * The main application component which initializes all the dependent modules
+ *
+ * */
+
 @Singleton
 @Component(modules = {
         AppModule.class,

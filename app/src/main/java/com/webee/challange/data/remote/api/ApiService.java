@@ -1,4 +1,4 @@
-package com.webee.challange.data.remote;
+package com.webee.challange.data.remote.api;
 
 import com.webee.challange.data.remote.repository.WeatherResponse;
 import retrofit2.Call;

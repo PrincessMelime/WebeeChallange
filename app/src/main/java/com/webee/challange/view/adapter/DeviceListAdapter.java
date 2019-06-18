@@ -14,6 +14,11 @@ import com.webee.challange.view.callback.DeviceListCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * This class represents the Device list recyclerview adapter
+ *
+ * */
 public class DeviceListAdapter extends BaseAdapter<DeviceListAdapter.DeviceViewHolder, DeviceEntity>
         implements Filterable {
 

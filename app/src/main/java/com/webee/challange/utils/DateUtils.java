@@ -4,6 +4,12 @@ import com.webee.challange.common.Constants;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ *
+ * Tools related to Dates
+ *
+ **/
+
 public class DateUtils {
 
     public static long getMinLimitDate(){

@@ -8,6 +8,11 @@ import okhttp3.Response;
 
 import java.io.IOException;
 
+/**
+ *
+ * This okhttp interceptor is responsible for adding the common query parameters and headers
+ *
+ **/
 public class RequestInterceptor implements Interceptor {
 
     @Override

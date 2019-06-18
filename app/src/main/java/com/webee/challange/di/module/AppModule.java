@@ -5,8 +5,8 @@ import androidx.room.Room;
 import com.webee.challange.data.ApplicationDatabase;
 import com.webee.challange.data.local.dao.DeviceDao;
 import com.webee.challange.data.local.dao.WeatherDao;
-import com.webee.challange.data.remote.ApiConstants;
-import com.webee.challange.data.remote.ApiService;
+import com.webee.challange.data.remote.api.ApiConstants;
+import com.webee.challange.data.remote.api.ApiService;
 import com.webee.challange.data.remote.RequestInterceptor;
 import dagger.Module;
 import dagger.Provides;
@@ -17,6 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import javax.inject.Singleton;
 import java.util.concurrent.TimeUnit;
+
+/**
+ *
+ * The application module which provides app wide instances of various components
+ *
+ * */
 
 @Module(includes = ViewModelModule.class)
 public class AppModule {

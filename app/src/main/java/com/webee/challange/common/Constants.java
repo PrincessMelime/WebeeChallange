@@ -1,5 +1,12 @@
 package com.webee.challange.common;
 
+/**
+ *
+ * All the app's constants are defined here
+ *
+ * */
+
+
 public class Constants {
     public static final String BUNDLE_KEY_DEVICE_NAME = "name";
     public static final String BUNDLE_KEY_DEVICE_MAC_ADDRESS = "mac_address";

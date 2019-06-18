@@ -1,4 +1,11 @@
-package com.webee.challange.data.remote;
+package com.webee.challange.data.remote.api;
+
+
+/**
+ *
+ * The Api's constants are defined here
+ *
+ * */
 
 public class ApiConstants {
 
@@ -11,6 +18,5 @@ public class ApiConstants {
     public static final String UNITS = "metric";
 
     private ApiConstants() {
-        // Private constructor to hide the implicit one
     }
 }

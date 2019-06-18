@@ -7,6 +7,11 @@ import com.webee.challange.view.fragment.WeatherFragment;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
+/**
+ *
+ * This builder provides android injector service to fragments
+ *
+ * */
 @Module
 public abstract class FragmentBuilderModule {
 

@@ -15,6 +15,12 @@ import dagger.android.support.HasSupportFragmentInjector;
 
 import javax.inject.Inject;
 
+/**
+ *
+ * Generic Base Activity
+ *
+ * */
+
 public abstract class BaseActivity<D extends ViewDataBinding> extends AppCompatActivity implements HasSupportFragmentInjector {
 
     @Inject
