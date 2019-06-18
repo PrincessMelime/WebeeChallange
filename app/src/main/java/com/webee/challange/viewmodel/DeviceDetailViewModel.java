@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.webee.challange.data.local.repository.DeviceRepository;
 import com.webee.challange.data.local.entity.DeviceEntity;
-import com.webee.challange.utils.SingleLiveEvent;
 import com.webee.challange.view.callback.ResponseListener;
 
 import javax.inject.Inject;
@@ -17,7 +16,6 @@ public class DeviceDetailViewModel extends ViewModel {
 
     private MutableLiveData<DeviceEntity> deviceEntityMutableLiveData = new MutableLiveData<>();
 
-    private SingleLiveEvent<Void> errorMessageRecieved = new SingleLiveEvent<>();
 
     public MutableLiveData<DeviceEntity> getDeviceEntityMutableLiveData() {
         return deviceEntityMutableLiveData;
@@ -27,13 +25,6 @@ public class DeviceDetailViewModel extends ViewModel {
         this.deviceEntityMutableLiveData = deviceEntityMutableLiveData;
     }
 
-    public SingleLiveEvent<Void> getErrorMessageRecieved() {
-        return errorMessageRecieved;
-    }
-
-    public void setErrorMessageRecieved(SingleLiveEvent<Void> errorMessageRecieved) {
-        this.errorMessageRecieved = errorMessageRecieved;
-    }
 
     @Inject
     DeviceDetailViewModel(DeviceRepository deviceRepository) {
@@ -60,7 +51,7 @@ public class DeviceDetailViewModel extends ViewModel {
                 @Override
                 public void onFailure(String message) {
                     // Send event to UI to show thw error
-                    errorMessageRecieved.call();
+                   // errorMessageRecieved.call();
                 }
             });
         }

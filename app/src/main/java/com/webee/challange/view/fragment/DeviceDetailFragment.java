@@ -27,16 +27,16 @@ public class DeviceDetailFragment extends BaseFragment<DeviceDetailViewModel, Fr
         Bundle args = getArguments();
         if(null != args) {
 
-                dataBinding.textName.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_NAME));
-                dataBinding.textMacAddress.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_MAC_ADDRESS));
+                dataBinding.txtName.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_NAME));
+                dataBinding.txtMacAddress.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_MAC_ADDRESS));
                 dataBinding.textCreatedDate.setText(args.getString(Constants.BUNDLE_KEY_DEVICE_DATE_OF_ENTRY));
                 dataBinding.loadingProgress.setVisibility(View.GONE);
             }
 
 
-        viewModel.getErrorMessageRecieved().observe(getViewLifecycleOwner(), message ->{
+        /*viewModel.getErrorMessageRecieved().observe(getViewLifecycleOwner(), message ->{
             dataBinding.loadingProgress.setVisibility(View.GONE);
             dataBinding.textError.setText("Error");
-        });
+        });*/
     }
 }

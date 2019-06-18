@@ -24,11 +24,6 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
         return R.layout.fragment_new_device;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -52,13 +47,13 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
     }
 
     private void setNameError(boolean showError) {
-        if (showError) dataBinding.textName.setError(getResources().getString(R.string.name_no_empty));
-        else dataBinding.textName.setError(null);
+        if (showError) dataBinding.txtName.setError(getResources().getString(R.string.name_no_empty));
+        else dataBinding.txtName.setError(null);
     }
 
     private void setMacAddressError(boolean showError) {
-        if (showError) dataBinding.textMacAddress.setError(getResources().getString(R.string.mac_address_format));
-        else dataBinding.textMacAddress.setError(null);
+        if (showError) dataBinding.txtMacAddress.setError(getResources().getString(R.string.mac_address_format));
+        else dataBinding.txtMacAddress.setError(null);
     }
 
     private void setDateOfEntryError(boolean showError) {
@@ -77,11 +72,12 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
             dataBinding.btnAdd.setVisibility(View.GONE);
             dataBinding.txtMessage.setVisibility(View.VISIBLE);
             dataBinding.txtMessage.setText(R.string.success_device_save);
+            dataBinding.txtMacAddress.setText("");
+            dataBinding.txtName.setText("");
+            dataBinding.etDateOfEntry.setText("");
         } else {
             Toast.makeText(getContext(), getResources().getString(R.string.unsuccessful_device_save), Toast.LENGTH_LONG).show();
-
         }
-
     }
 
     private void setShowProgress(boolean showProgress) {
@@ -96,7 +92,6 @@ public class NewDeviceFragment extends BaseFragment<NewDeviceViewModel, Fragment
             dataBinding.txtMessage.setVisibility(View.GONE);
             dataBinding.loadingProgress.setVisibility(View.GONE);
         }
-
     }
 
     private void observeTimePickerDialogDisplayValue() {

@@ -45,7 +45,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:hint="@string/device_name">
                     <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/textName"
+                            android:id="@+id/txt_name"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:inputType="textNoSuggestions"
@@ -61,7 +61,7 @@
                         android:hint="@string/mac_address">
 
                     <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/textMacAddress"
+                            android:id="@+id/txt_mac_address"
                             android:inputType="textNoSuggestions"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"

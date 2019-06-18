@@ -76,6 +76,7 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
                 protected void onPostExecute(Void none) {
                     showProgress.setValue(false);
                     successSave.setValue(true);
+                    display.setValue(false);
                 }
             }.execute();
 
