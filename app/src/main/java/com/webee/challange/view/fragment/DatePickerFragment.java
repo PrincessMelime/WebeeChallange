@@ -2,6 +2,7 @@ package com.webee.challange.view.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import com.webee.challange.utils.DateUtils;
@@ -11,6 +12,7 @@ import java.util.Calendar;
 public class DatePickerFragment extends DialogFragment{
 
     private DatePickerDialog.OnDateSetListener listener;
+
 
     public DatePickerFragment(DatePickerDialog.OnDateSetListener listener) {
         this.listener = listener;
@@ -25,9 +27,14 @@ public class DatePickerFragment extends DialogFragment{
         int day = c.get(Calendar.DAY_OF_MONTH);
 
         // Create a new instance of DatePickerDialog and return it
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), listener, year, month, day);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), listener, year, month, day);
         datePickerDialog.getDatePicker().setMinDate(DateUtils.getMinLimitDate());
         return datePickerDialog;
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialogInterface) {
+        ((DatePickerDialog.OnDismissListener) listener).onDismiss(dialogInterface);
     }
 
 }

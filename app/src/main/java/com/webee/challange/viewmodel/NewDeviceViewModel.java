@@ -1,6 +1,7 @@
 package com.webee.challange.viewmodel;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.widget.DatePicker;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +11,8 @@ import com.webee.challange.data.local.repository.DeviceRepository;
 
 import javax.inject.Inject;
 
-public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.OnDateSetListener {
+public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.OnDateSetListener,
+                                                             DatePickerDialog.OnDismissListener{
 
     private MutableLiveData<Boolean> display = new MutableLiveData<>();
     private MutableLiveData<String> deviceName = new MutableLiveData<>();
@@ -28,9 +30,6 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
     @Inject
     public NewDeviceViewModel(DeviceRepository deviceRepository) {
         this.deviceRepository = deviceRepository;
-        deviceName.setValue("");
-        deviceMacAddress.setValue("");
-        dateOfEntry.setValue("");
     }
 
     public void onDeviceNameChange(CharSequence s) {
@@ -98,7 +97,7 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
 
         dateOfEntry.setValue("" + day + "/" + month + "/" + year);
-
+        display.setValue(false);
     }
 
     public MutableLiveData<Boolean> getShowNameError() {
@@ -120,4 +119,12 @@ public class NewDeviceViewModel extends ViewModel implements DatePickerDialog.On
     public MutableLiveData<Boolean> getShowProgress() {
         return showProgress;
     }
+
+    @Override
+    public void onDismiss(DialogInterface dialogInterface) {
+        display.setValue(false);
+
+    }
+
+
 }

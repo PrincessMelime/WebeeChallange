@@ -50,6 +50,7 @@
                             android:layout_width="match_parent"
                             android:inputType="textNoSuggestions"
                             android:layout_height="wrap_content"
+                            android:saveEnabled="false"
                             android:afterTextChanged="@{(edtitable)->viewNewDeviceViewModel.onDeviceNameChange(edtitable)}"
                             android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -65,6 +66,7 @@
                             android:inputType="textNoSuggestions"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
+                            android:saveEnabled="false"
                             android:layout_height="wrap_content"
                             android:afterTextChanged="@{(edtitable)->viewNewDeviceViewModel.onDeviceMacAddressChange(edtitable)}"
                             android:textSize="16sp"/>
@@ -81,6 +83,7 @@
                             android:textSize="16sp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:saveEnabled="false"
                             android:inputType="date"
                             android:focusable="false"
                             android:onClick="@{() -> viewNewDeviceViewModel.onDisplayTimePickerDialogClick()}"
